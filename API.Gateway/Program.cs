@@ -13,10 +13,10 @@ builder.Services.AddOcelot(builder.Configuration)
 
 var app = builder.Build();
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
-app.UseAuthorization();
+//app.UseAuthentication();
+//app.UseAuthorization();
 
 await app.UseOcelot();
-
-app.Run();
+await app.RunAsync();
