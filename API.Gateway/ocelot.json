@@ -1,5 +1,9 @@
 ﻿{
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:7200"
+  },
   "Routes": [
+
     {
       "UpstreamPathTemplate": "/identity/realms/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
@@ -36,6 +40,7 @@
         }
       ]
     },
+
     {
       "UpstreamPathTemplate": "/boards",
       "UpstreamHttpMethod": [ "Post" ],
@@ -46,8 +51,7 @@
           "Host": "whiteboard-service",
           "Port": 80
         }
-      ],
-      "DangerousAcceptAnyServerCertificateValidator": true
+      ]
     },
     {
       "UpstreamPathTemplate": "/boards/{id}",
@@ -59,8 +63,7 @@
           "Host": "whiteboard-service",
           "Port": 80
         }
-      ],
-      "DangerousAcceptAnyServerCertificateValidator": true
+      ]
     },
     {
       "UpstreamPathTemplate": "/boards/{id}",
@@ -93,11 +96,20 @@
           "Host": "whiteboard-service",
           "Port": 80
         }
-      ],
-      "DangerousAcceptAnyServerCertificateValidator": true
+      ]
+    },
+
+    {
+      "UpstreamPathTemplate": "/party/{room}",
+      "UpstreamHttpMethod": [  "GET", "DELETE", "PUT", "PATCH", "POST" ],
+      "DownstreamPathTemplate": "/{room}",
+      "DownstreamScheme": "ws",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5145
+        }
+      ]
     }
-  ],
-  "GlobalConfiguration": {
-    "BaseUrl": "http://localhost:7200"
-  }
+  ]
 }
