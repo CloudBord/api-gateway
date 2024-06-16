@@ -106,8 +106,8 @@
       "DownstreamScheme": "ws",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 5145
+          "Host": "session-handler",
+          "Port": 8080
         }
       ]
     }
