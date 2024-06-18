@@ -1,10 +1,12 @@
 using Ocelot.DependencyInjection;
 using Ocelot.Cache.CacheManager;
 using Ocelot.Middleware;
+using Ocelot.Provider.Kubernetes;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddOcelot(builder.Configuration)
+    .AddKubernetes()
     .AddCacheManager(x =>
     {
         x.WithDictionaryHandle();
