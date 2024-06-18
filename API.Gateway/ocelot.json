@@ -1,10 +1,15 @@
 ﻿{
   "GlobalConfiguration": {
+    "ServiceDiscoveryProvider": {
+      "Namespace": "Dev",
+      "Type": "Kube"
+    },
     "BaseUrl": "http://localhost:7200"
   },
   "Routes": [
 
     {
+      "ServiceName": "keycloak",
       "UpstreamPathTemplate": "/identity/realms/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
       "DownstreamPathTemplate": "/realms/{everything}",
@@ -17,6 +22,7 @@
       ]
     },
     {
+      "ServiceName": "keycloak",
       "UpstreamPathTemplate": "/identity/resources/{everything}",
       "UpstreamHttpMethod": [ "Get" ],
       "DownstreamPathTemplate": "/resources/{everything}",
@@ -29,6 +35,7 @@
       ]
     },
     {
+      "ServiceName": "keycloak",
       "UpstreamPathTemplate": "/identity/js/{everything}",
       "UpstreamHttpMethod": [ "Get" ],
       "DownstreamPathTemplate": "/js/{everything}",
@@ -42,6 +49,7 @@
     },
 
     {
+      "ServiceName": "whiteboard-service",
       "UpstreamPathTemplate": "/boards",
       "UpstreamHttpMethod": [ "Post" ],
       "DownstreamPathTemplate": "/api/boards",
