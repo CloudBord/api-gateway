@@ -12,8 +12,8 @@
       "UpstreamHttpMethod": [ "Post" ],
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 7210
+          "Host": "whiteboard-service",
+          "Port": 80
         }
       ],
       "DownstreamPathTemplate": "/boards",
@@ -25,8 +25,8 @@
       "UpstreamHttpMethod": [ "Delete" ],
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 7210
+          "Host": "whiteboard-service",
+          "Port": 80
         }
       ],
       "DownstreamPathTemplate": "/boards/{id}",
@@ -38,8 +38,8 @@
       "UpstreamHttpMethod": [ "Get" ],
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 7210
+          "Host": "whiteboard-service",
+          "Port": 80
         }
       ],
       "DownstreamPathTemplate": "/boards/{id}",
@@ -60,8 +60,8 @@
       "UpstreamHttpMethod": [ "Put" ],
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 7210
+          "Host": "whiteboard-service",
+          "Port": 80
         }
       ],
       "DownstreamPathTemplate": "/boards",
@@ -69,11 +69,11 @@
     },
     {
       //"ServiceName": "session-handler",
-      "UpstreamPathTemplate": "/party/{room}",
+      "UpstreamPathTemplate": "/api/party/{room}",
       "UpstreamHttpMethod": [ "GET", "DELETE", "PUT", "PATCH", "POST" ],
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
+          "Host": "session-handler",
           "Port": 5145
         }
       ],
