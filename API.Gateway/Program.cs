@@ -12,10 +12,17 @@ builder.Services.AddOcelot(builder.Configuration)
         x.WithDictionaryHandle();
     });
 
+builder.Services.AddCors();
+
 builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
 
 
 var app = builder.Build();
+
+app.UseCors(builder => builder
+    .AllowAnyOrigin()
+    .AllowAnyMethod()
+    .AllowAnyHeader());
 
 //app.UseRouting();
 //app.UseEndpoints(_ => { });
@@ -25,6 +32,6 @@ var app = builder.Build();
 //app.UseAuthentication();
 //app.UseAuthorization();
 app.UseWebSockets();
-app.UseOcelot().Wait();
 
+await app.UseOcelot();
 await app.RunAsync();

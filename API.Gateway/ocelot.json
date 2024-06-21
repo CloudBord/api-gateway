@@ -79,6 +79,19 @@
       ],
       "DownstreamPathTemplate": "/{room}",
       "DownstreamScheme": "ws"
+    },
+    {
+      //"ServiceName": "session-handler",
+      "UpstreamPathTemplate": "/api/snapshot",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5145
+        }
+      ],
+      "DownstreamPathTemplate": "/snapshot",
+      "DownstreamScheme": "http"
     }
   ]
 }
