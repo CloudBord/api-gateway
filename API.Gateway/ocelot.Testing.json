@@ -1,0 +1,88 @@
+﻿{
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/api/boards",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "whiteboard-service",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/boards",
+      "DownstreamScheme": "http"
+    },
+    {
+      "UpstreamPathTemplate": "/api/boards/{id}",
+      "UpstreamHttpMethod": [ "Delete" ],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "whiteboard-service",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/boards/{id}",
+      "DownstreamScheme": "http"
+    },
+    {
+      "UpstreamPathTemplate": "/api/boards/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "whiteboard-service",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/boards/{id}",
+      "DownstreamScheme": "http"
+    },
+    {
+      "UpstreamPathTemplate": "/api/boards",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "whiteboard-service",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/boards",
+      "DownstreamScheme": "http"
+    },
+    {
+      "UpstreamPathTemplate": "/party/{room}",
+      "UpstreamHttpMethod": [ "GET", "DELETE", "PUT", "PATCH", "POST" ],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "session-handler",
+          "Port": 5145
+        }
+      ],
+      "DownstreamPathTemplate": "/{room}",
+      "DownstreamScheme": "ws"
+    },
+    {
+      "UpstreamPathTemplate": "/api/store",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "document-store",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/store",
+      "DownstreamScheme": "http"
+    },
+    {
+      "UpstreamPathTemplate": "/api/store/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "document-store",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/store/{id}",
+      "DownstreamScheme": "http"
+    }
+  ]
+}

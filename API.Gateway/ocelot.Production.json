@@ -1,0 +1,52 @@
+﻿{
+  "GlobalConfiguration": {
+    "ServiceDiscoveryProvider": {
+      "Namespace": "propnull",
+      "Type": "KubernetesServiceDiscoveryProvider"
+    }
+  },
+  "Routes": [
+    {
+      "ServiceName": "whiteboard-service",
+      "UpstreamPathTemplate": "/api/boards",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/api/boards",
+      "DownstreamScheme": "http"
+    },
+    {
+      "ServiceName": "whiteboard-service",
+      "UpstreamPathTemplate": "/api/boards/{id}",
+      "UpstreamHttpMethod": [ "GET", "DELETE" ],
+      "DownstreamPathTemplate": "/api/boards/{id}",
+      "DownstreamScheme": "http"
+    },
+    {
+      "ServiceName": "whiteboard-service",
+      "UpstreamPathTemplate": "/api/boards",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "DownstreamPathTemplate": "/api/boards",
+      "DownstreamScheme": "http"
+    },
+    {
+      "ServiceName": "session-handler",
+      "UpstreamPathTemplate": "/party/{room}",
+      "UpstreamHttpMethod": [ "GET", "DELETE", "PUT", "PATCH", "POST" ],
+      "DownstreamPathTemplate": "/{room}",
+      "DownstreamScheme": "ws"
+    },
+    {
+      "ServiceName": "document-store",
+      "UpstreamPathTemplate": "/api/store",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/api/store",
+      "DownstreamScheme": "http"
+    },
+    {
+      "ServiceName": "document-store",
+      "UpstreamPathTemplate": "/api/store/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/store/{id}",
+      "DownstreamScheme": "http"
+    }
+  ]
+}

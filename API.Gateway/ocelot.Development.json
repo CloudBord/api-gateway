@@ -1,0 +1,76 @@
+﻿{
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/api/boards",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7210
+        }
+      ],
+      "DownstreamPathTemplate": "/api/boards",
+      "DownstreamScheme": "http"
+    },
+    {
+      "UpstreamPathTemplate": "/api/boards/{id}",
+      "UpstreamHttpMethod": [ "GET", "DELETE" ],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7210
+        }
+      ],
+      "DownstreamPathTemplate": "/api/boards/{id}",
+      "DownstreamScheme": "http"
+    },
+    {
+      "UpstreamPathTemplate": "/api/boards",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7210
+        }
+      ],
+      "DownstreamPathTemplate": "/api/boards",
+      "DownstreamScheme": "http"
+    },
+    {
+      "UpstreamPathTemplate": "/party/{room}",
+      "UpstreamHttpMethod": [ "GET", "DELETE", "PUT", "PATCH", "POST" ],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7220
+        }
+      ],
+      "DownstreamPathTemplate": "/{room}",
+      "DownstreamScheme": "ws"
+    },
+    {
+      "UpstreamPathTemplate": "/api/store",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7230
+        }
+      ],
+      "DownstreamPathTemplate": "/api/store",
+      "DownstreamScheme": "http"
+    },
+    {
+      "UpstreamPathTemplate": "/api/store/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7230
+        }
+      ],
+      "DownstreamPathTemplate": "/api/store/{id}",
+      "DownstreamScheme": "http"
+    }
+  ]
+}

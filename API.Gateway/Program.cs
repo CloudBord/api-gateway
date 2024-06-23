@@ -5,26 +5,37 @@ using Ocelot.Provider.Kubernetes;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddOcelot(builder.Configuration)
+if(builder.Environment.EnvironmentName != "Production")
+{
+    builder.Services.AddOcelot(builder.Configuration)
+    .AddCacheManager(x =>
+    {
+        x.WithDictionaryHandle();
+    });
+}
+else
+{
+    builder.Services.AddOcelot(builder.Configuration)
     .AddKubernetes()
     .AddCacheManager(x =>
     {
         x.WithDictionaryHandle();
     });
+}
 
-builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
 
+builder.Services.AddCors();
+
+builder.Configuration.AddJsonFile($"ocelot.{builder.Environment.EnvironmentName}.json", optional: false, reloadOnChange: false);
 
 var app = builder.Build();
 
-//app.UseRouting();
-//app.UseEndpoints(_ => { });
+app.UseCors(builder => builder
+    .AllowAnyOrigin()
+    .AllowAnyMethod()
+    .AllowAnyHeader());
 
-//app.UseHttpsRedirection();
-
-//app.UseAuthentication();
-//app.UseAuthorization();
 app.UseWebSockets();
-app.UseOcelot().Wait();
 
+await app.UseOcelot();
 await app.RunAsync();
