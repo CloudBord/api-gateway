@@ -1,7 +1,7 @@
 ﻿{
   "GlobalConfiguration": {
     "ServiceDiscoveryProvider": {
-      "Namespace": "propnull",
+      "Namespace": "default",
       "Type": "KubernetesServiceDiscoveryProvider"
     }
   },

@@ -54,7 +54,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "session-handler",
-          "Port": 5145
+          "Port": 8080
         }
       ],
       "DownstreamPathTemplate": "/{room}",
